@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/list" android:icon="@drawable/baby_icon" android:title="Daftar Anak"/>
+    <item android:id="@+id/hitung" android:icon="@drawable/calcu_icon" android:title="Hitung Gizi"/>
+    <item android:id="@+id/gizi" android:icon="@drawable/gizi_icon" android:title="Angka Kecukupan Gizi"/>
+    <item android:id="@+id/riwayat" android:icon="@drawable/note_icon" android:title="Riwayat"/>
+</menu>
