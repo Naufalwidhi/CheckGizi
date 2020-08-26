@@ -1,9 +1,12 @@
 package com.checkgizi.tech.Activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.checkgizi.tech.Fragment.*
+import com.checkgizi.tech.Fragment.DaftarAnakFragment
+import com.checkgizi.tech.Fragment.HitungGiziFragment
+import com.checkgizi.tech.Fragment.KecukupanGiziFragment
+import com.checkgizi.tech.Fragment.RiwayatFragment
 import com.checkgizi.tech.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -14,6 +17,11 @@ class MainActivity : AppCompatActivity() {
 
         val navView = findViewById<BottomNavigationView>(R.id.nav_bar)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
+        //untuk menampilkan fragment saat aplikasi pertama dibuka
+        if (savedInstanceState == null) {
+            navView.selectedItemId = R.id.list
+        }
     }
 
     private val onNavigationItemSelectedListener =

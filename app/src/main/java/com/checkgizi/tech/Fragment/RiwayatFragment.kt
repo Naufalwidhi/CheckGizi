@@ -1,35 +1,16 @@
 package com.checkgizi.tech.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.checkgizi.tech.Activity.HitungGiziActivity
 import com.checkgizi.tech.R
+import kotlinx.android.synthetic.main.fragment_riwayat.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RiwayatFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RiwayatFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,23 +19,50 @@ class RiwayatFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_riwayat, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RiwayatFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RiwayatFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btn_tambah_anak_gizi.setOnClickListener {
+            save()
+        }
+
+
     }
+    private fun save(){
+        val nama = et_nama_anak_gizi.text.toString().trim()
+        val tgl = et_umur.text.toString().trim()
+        val umur = tgl.toInt()
+        val jk = et_jk.text.toString().trim()
+
+        if (nama.isEmpty()){
+            et_nama_anak_gizi.error = "Masukkan Nama Anak"
+            et_nama_anak_gizi.requestFocus()
+            return
+        }
+        if (tgl.isEmpty()){
+            et_umur.error = "Masukkan Umur Anak"
+            et_umur.requestFocus()
+            return
+        }
+        if (umur>108){
+            et_umur.error = "Umur tidak boleh lebih dari 108 Bulan (9 Tahun)"
+            et_umur.requestFocus()
+            return
+        }
+        if (umur<0){
+            et_umur.error = "Masukkan Umur dengan benar"
+            et_umur.requestFocus()
+            return
+        }
+
+        if (jk.isEmpty()){
+            et_jk.error = "Masukkan Jenis Kelamin Anak"
+            et_jk.requestFocus()
+            return
+        }
+
+            val intent = Intent(context, HitungGiziActivity::class.java)
+            intent.putExtra("umur", umur)
+            startActivity(intent)
+    }
+
 }

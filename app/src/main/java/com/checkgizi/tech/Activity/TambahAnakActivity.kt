@@ -39,6 +39,7 @@ class TambahAnakActivity : AppCompatActivity() {
     private fun tambahkan(){
         val nama = et_nama_anak.text.toString().trim()
         val tgl = et_tgl_lahir.text.toString().trim()
+        val umur = tgl.toInt()
         val jk = et_jenis_kelamin.text.toString().trim()
 
         if (nama.isEmpty()){
@@ -47,19 +48,30 @@ class TambahAnakActivity : AppCompatActivity() {
             return
         }
         if (tgl.isEmpty()){
-            et_tgl_lahir.error = "Masukkan Tanggal Lahir Anak"
+            et_tgl_lahir.error = "Masukkan Umur Anak"
             et_tgl_lahir.requestFocus()
             return
         }
+        if (umur>108){
+            et_tgl_lahir.error = "Umur tidak boleh lebih dari 108 Bulan (9 Tahun)"
+            et_tgl_lahir.requestFocus()
+            return
+        }
+        if (umur<0){
+            et_tgl_lahir.error = "Masukkan Umur dengan benar"
+            et_tgl_lahir.requestFocus()
+            return
+        }
+
         if (jk.isEmpty()){
             et_jenis_kelamin.error = "Masukkan Jenis Kelamin Anak"
             et_jenis_kelamin.requestFocus()
             return
         }
-
+        val dataid = nama
         val Data = DataAnak(nama, tgl, jk)
 
-        ref.setValue(Data)
+        ref.child(dataid).setValue(Data)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     startActivity(Intent(this, MainActivity::class.java))
