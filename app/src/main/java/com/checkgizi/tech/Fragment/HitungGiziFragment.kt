@@ -33,10 +33,10 @@ class HitungGiziFragment : Fragment() {
     private fun hitung(){
         val berat = view?.findViewById<EditText>(R.id.et_bb)
         val berat2 = berat?.text.toString()
-        val berat3 = berat2.toInt()
+        val berat3 = berat2.toDouble()
         val tinggi = view?.findViewById<EditText>(R.id.et_tb)
         val tinggi2 = tinggi?.text.toString()
-        val tinggi3 = tinggi2.toInt()
+        val tinggi3 = tinggi2.toDouble()
         val tinggi4 = tinggi3/100
         val tinggi5 = tinggi4*tinggi4
         val hasil = berat3/tinggi5
