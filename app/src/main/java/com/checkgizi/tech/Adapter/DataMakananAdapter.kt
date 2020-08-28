@@ -9,9 +9,12 @@ import android.widget.TextView
 import com.checkgizi.tech.Model.DataBahanMakanan
 import com.checkgizi.tech.R
 
-class DataMakananAdapter2 (val mCtx: Context, val layoutResId: Int, val DataList: List<DataBahanMakanan>)
-    : ArrayAdapter<DataBahanMakanan>(mCtx, layoutResId, DataList)
-{
+class DataMakananAdapter(
+    val mCtx: Context,
+    val layoutResId: Int,
+    val DataList: List<DataBahanMakanan>,
+    val listener: DataListener
+) : ArrayAdapter<DataBahanMakanan>(mCtx, layoutResId, DataList) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
         val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
@@ -28,6 +31,9 @@ class DataMakananAdapter2 (val mCtx: Context, val layoutResId: Int, val DataList
         val lemak = data.Lemak.toString()
         val protein = data.Protein.toString()
 
+        view.rootView.setOnClickListener{
+            listener.onClick(position, data)
+        }
 
         tvname2.text = data.Nama
         tvkalori2.text = kalori
@@ -37,4 +43,8 @@ class DataMakananAdapter2 (val mCtx: Context, val layoutResId: Int, val DataList
 
         return view
     }
+}
+
+interface DataListener {
+    fun onClick(position: Int, data: DataBahanMakanan)
 }

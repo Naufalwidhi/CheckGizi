@@ -26,9 +26,17 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="175dp"
+            android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:text="Nama Anak Anda :"
+            android:text="Nama"
+            android:textColor="@color/dark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="match_parent"
+            android:text=":"
             android:textColor="@color/dark"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -36,7 +44,7 @@
         <TextView
             android:id="@+id/tv_nama_"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Nama"
             android:textSize="18sp" />
 
@@ -50,9 +58,17 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="175dp"
+            android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:text="Umur Anak Anda :"
+            android:text="Umur"
+            android:textColor="@color/dark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="match_parent"
+            android:text=":"
             android:textColor="@color/dark"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -75,11 +91,19 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="220dp"
+            android:layout_width="180dp"
             android:layout_height="match_parent"
             android:text="Kalori Yang dibutuhkan"
             android:textColor="@color/dark"
-            android:textSize="20sp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="match_parent"
+            android:text=":"
+            android:textColor="@color/dark"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -91,6 +115,24 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Bahan Yang Anda Pilih"
+        android:textColor="@color/dark"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tv_bahan_terpilih"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:text="Bahan"
+        android:textColor="@color/dark"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,11 +142,18 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="220dp"
-            android:layout_height="match_parent"
-            android:text="Total Kalori :"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Total Kalori"
             android:textColor="@color/dark"
             android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="match_parent"
+            android:text=":"
+            android:textColor="@color/dark"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -115,14 +164,6 @@
             android:textSize="18sp" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_tambahkan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Tambahkan"
-        android:background="@drawable/shape_orange"/>
 
     <TextView
         android:layout_marginStart="10dp"

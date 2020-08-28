@@ -62,9 +62,7 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 } else {
                     Log.w("Hello, ", "error")
-                    Toast.makeText(
-                        this, "Authentication failed.",
-                        Toast.LENGTH_SHORT
+                    Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT
                     ).show()
                 }
             }

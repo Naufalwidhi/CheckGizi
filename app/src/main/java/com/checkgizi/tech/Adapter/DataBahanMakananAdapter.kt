@@ -22,6 +22,7 @@ class DataBahanMakananAdapter (val mCtx: Context, val layoutResId: Int, val Data
         val tvlemak2 = view.findViewById<TextView>(R.id.tv_lemak)
         val tvprotein2 = view.findViewById<TextView>(R.id.tv_Protein)
 
+
         val data = DataList[position]
         val kalori = data.Kalori.toString()
         val karbo = data.Karbohidrat.toString()

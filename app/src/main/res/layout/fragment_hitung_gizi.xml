@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Berat Badan" />
+        android:hint="Berat Badan (kg)" />
 
     <EditText
         android:id="@+id/et_tb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Tinggi Badan" />
+        android:hint="Tinggi Badan (cm)" />
 
     <Button
         android:id="@+id/btn_hitung_imt"
@@ -30,20 +30,19 @@
         android:text="Hitung Indeks Massa Tubuh" />
 
     <View
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/dark"/>
+        android:layout_marginTop="10dp"
+        android:background="@color/dark" />
 
     <TextView
         android:id="@+id/tv_imt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textColor="@color/dark"
-        android:textAlignment="center"
-        android:textSize="18sp"
         android:text="Hitung IMT (Indeks Massa Tubuh) Anak anda segera"
-        />
+        android:textAlignment="center"
+        android:textColor="@color/dark"
+        android:textSize="18sp" />
 
 </LinearLayout>

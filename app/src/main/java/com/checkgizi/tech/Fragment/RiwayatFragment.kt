@@ -27,42 +27,44 @@ class RiwayatFragment : Fragment() {
 
 
     }
-    private fun save(){
+
+    private fun save() {
         val nama = et_nama_anak_gizi.text.toString().trim()
         val tgl = et_umur.text.toString().trim()
         val umur = tgl.toInt()
         val jk = et_jk.text.toString().trim()
 
-        if (nama.isEmpty()){
+        if (nama.isEmpty()) {
             et_nama_anak_gizi.error = "Masukkan Nama Anak"
             et_nama_anak_gizi.requestFocus()
             return
         }
-        if (tgl.isEmpty()){
+        if (tgl.isEmpty()) {
             et_umur.error = "Masukkan Umur Anak"
             et_umur.requestFocus()
             return
         }
-        if (umur>108){
+        if (umur > 108) {
             et_umur.error = "Umur tidak boleh lebih dari 108 Bulan (9 Tahun)"
             et_umur.requestFocus()
             return
         }
-        if (umur<0){
+        if (umur < 0) {
             et_umur.error = "Masukkan Umur dengan benar"
             et_umur.requestFocus()
             return
         }
 
-        if (jk.isEmpty()){
+        if (jk.isEmpty()) {
             et_jk.error = "Masukkan Jenis Kelamin Anak"
             et_jk.requestFocus()
             return
         }
 
-            val intent = Intent(context, HitungGiziActivity::class.java)
-            intent.putExtra("umur", umur)
-            startActivity(intent)
+        val intent = Intent(context, HitungGiziActivity::class.java)
+        intent.putExtra("nama", nama)
+        intent.putExtra("umur", tgl)
+        startActivity(intent)
     }
 
 }
